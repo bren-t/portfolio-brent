@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/prism.css">
+    <title>Document</title>
+</head>
+<body class="project" id="webappfromscratch">
+    <nav>
+        <div class="nav-left">
+            <button id="back-btn" onclick="history.back()"><ion-icon name="arrow-back-sharp"></ion-icon></button>
+        </div>
+        <div class="nav-right">
+            <a href="#other-projects"><p>Andere projecten</p><ion-icon name="arrow-forward-sharp"></ion-icon></a>
+        </div>
+    </nav>
+    <div class="container">
+        <header id="header">
+            <h1 class="anim"><span class="italic">Web App from Scratch</span>, een project waarbij ik een Web App heb gemaakt vanaf nul, met behulp van HTML, CSS en JavaScript.</h1>
+        </header>
+        <main>
+            <div class="anim">
+                <h1>Over dit project</h1>
+                <p>Dit project toont mijn vaardigheden in webontwikkeling door middel van het voltooien van een uitgebreide cursus. Ik heb een modulaire single-page webapplicatie gebouwd met behulp van puur HTML, CSS en JavaScript, zonder gebruik te maken van frameworks of onnodige bibliotheken. Het project omvatte het ophalen van gegevens van een externe API, het bewerken ervan en naadloos integreren in de gebruikersinterface. Ik paste interface-ontwerpprincipes toe om een intuïtieve en gebruiksvriendelijke ervaring te creëren. Dit project toont mijn vaardigheden in frontend-ontwikkeling, gegevensintegratie en interface-ontwerp en benadrukt mijn vermogen om functionele webapplicaties te bouwen met behulp van kern webtechnologieën.</p>
+            </div>
+        </main>
+        <section>
+            <article class="anim">
+                <img src="img/web-app-from-scratch.png">
+            </article>
+            <aside class="anim">
+                <h1>What ik heb gemaakt</h1>
+                <p>Ik heb een modulaire single-page webapplicatie gebouwd met behulp van pure HTML, CSS en JavaScript, zonder gebruik te maken van frameworks of overbodige bibliotheken.</p>
+                <a href="img/rijksmuseum-web-app.zip" download>
+                    <p>Download Project</p>
+                    <div class="line"></div>
+                </a>
+            </aside>
+        </section>
+        <section>
+            <aside class="anim">
+                <h1>Code</h1>
+                <p>Eerst heb ik de API gekozen die ik wilde gebruiken. Ik besloot te gaan voor de Rijksmuseum API. De Rijksmuseum API is een tool die door het museum wordt aangeboden en het stelt ontwikkelaars in staat om op programmatische wijze informatie over kunstwerken en artefacten uit de collectie van het museum te benaderen en te verkrijgen. Het maakt integratie mogelijk in applicaties, websites of projecten om de culturele inhoud van het museum te presenteren en te verkennen.</p>
+                <pre>
+                    <code class="language-javascript">
+    const endpoint = 'https://www.rijksmuseum.nl/api/en/collection';
+    const apiKey = '********';
+
+    export async function fetchPaintings() {
+        try {
+          const response = await fetch(`${endpoint}?key=${apiKey}&format=json&type=painting&ps=48`);
+          const data = await response.json();
+          return data.artObjects;
+        } catch (error) {
+          console.error(error);
+          throw error;
+        }
+      }
+                    </code>
+                </pre>
+                <p>I begon met het bouwen van de HTML-pagina door de elementen te structureren. Ik creëerde een eenvoudige navigatiebalk die een logo aan de linkerkant bevatte, dat als link naar de homepage fungeert wanneer erop wordt geklikt. Daarnaast voegde ik een zoekbalk toe waarmee gebruikers specifieke schilderijen kunnen opzoeken.</p>
+                <p>Onder de navigatiebalk voegde ik een container toe waarin de schilderijen zouden worden weergegeven. Hiervoor gebruikte ik JavaScript om dynamisch verschillende elementen te creëren en aan die container toe te voegen.</p>
+                <pre>
+                    <code class="language-javascript">
+    export function displayPainting(painting) {
+    const paintingContainer = document.createElement("div");
+    paintingContainer.classList.add("painting-container");
+    
+    const img = document.createElement("img");
+    img.src = painting.webImage.url;
+    img.alt = painting.title;
+    
+    const title = document.createElement("h2");
+    title.textContent = painting.title;
+    
+    paintingContainer.appendChild(img);
+    paintingContainer.appendChild(title);
+    
+    paintingContainer.addEventListener("click", () => {
+        openPopup(painting);
+    });
+    
+    container.appendChild(paintingContainer);
+    }
+                    </code>
+                </pre>
+                <p>Daarna dacht ik na over de elementen die ik in mijn Web App wilde opnemen. Het werd duidelijk dat ik verschillende staten wilde toevoegen, zoals een foutmelding, laadstatus en nulstatus. Bovendien wilde ik een pop-up functie implementeren die meer details over een schilderij zou tonen. Deze pop-up zou verschijnen wanneer een gebruiker op een van de schilderijen klikt. Ik voegde de structuur voor deze pop-up toe aan mijn HTML en zorgde er ook voor dat de functionaliteit van de pop-up werkte met behulp van JavaScript.</p>
+                <pre>
+                    <code class="language-html">
+    &lt;div id="popup"&gt;
+        &lt;button id="close"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#131313" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;line x1="18" y1="6" x2="6" y2="18"&gt;&lt;/line&gt;&lt;line x1="6" y1="6" x2="18" y2="18"&gt;&lt;/line&gt;&lt;/svg&gt;&lt;/button&gt;
+        &lt;div id="popup-content"&gt;
+            &lt;h1 id="popup-title"&gt;&lt;/h1&gt;
+            &lt;p id="popup-description"&gt;Test&lt;/p&gt;
+            &lt;img id="popup-img" src="" alt=""&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+                    </code>
+                </pre>
+                <pre>
+                    <code class="language-javascript">
+    const popup = document.getElementById("popup");
+    const popupImg = document.getElementById("popup-img");
+    const popupTitle = document.getElementById("popup-title");
+    const popupDescription = document.getElementById("popup-description");
+    const closeButton = document.getElementById("close");
+    
+    export function openPopup(painting) {
+        popupImg.src = painting.webImage.url;
+        popupImg.alt = painting.title;
+        popupTitle.textContent = painting.title;
+        popupDescription.textContent = `Artist: ${painting.principalOrFirstMaker}`;
+    
+        popup.style.display = "block";
+    }
+    
+    export function closePopup() {
+        popup.style.display = "none";
+    }
+    
+    closeButton.addEventListener("click", () => {
+        closePopup();
+    });
+                    </code>
+                </pre>
+                <p>Naast de staten en de pop-up functionaliteit heb ik ook de eerder genoemde zoekfunctie geïmplementeerd. Deze zoekoptie stelt gebruikers in staat om binnen de Web App te zoeken naar specifieke schilderijen. Wanneer de gebruiker zoekt naar een schilderij dat niet bestaat, toont de Web App een foutmelding.
+                </p>
+                <pre>
+                    <code class="language-javascript">
+    export function displayPaintings(paintings, searchTerm = '') {
+    clearPaintings();
+    
+    const filteredPaintings = paintings.filter(painting => {
+        return painting.title.toLowerCase().includes(searchTerm.toLowerCase());
+    });
+    
+    if (filteredPaintings.length === 0 && searchTerm !== '') {
+        showErrorMessage();
+    } else {
+        hideErrorMessage();
+    }
+    
+    filteredPaintings.forEach(painting => {
+        displayPainting(painting);
+    });
+    }
+                    </code>
+                </pre>
+                <p>Routie werd geïntegreerd in mijn webapplicatie om de gebruikerservaring te verbeteren door naadloze navigatie en dynamische content-updates te bieden. Door client-side routing te implementeren met Routie, zorgde ik ervoor dat gebruikers door verschillende secties van de applicatie konden navigeren zonder dat de pagina's opnieuw hoefden te worden geladen.</p>
+            </aside>
+        </section>
+        <footer id="other-projects">
+            <div class="text">
+                <h1 class="anim">Bekijk ook mijn andere werk</h1>
+            </div>
+            <div class="projects">
+                <a class="geo-ranking anim" href="/georanking">
+                    <img src="img/geo.ranking.jpg">
+                    <h1>/projects/geo-ranking</h1>
+                </a>
+                <a class="burger-website anim" href="/burger">
+                    <img src="img/burger.jpg">
+                    <h1>/projects/burger-website</h1>
+                </a>
+                <a class="web-app-from-scratch anim" href="/burger">
+                    <img src="img/web-app-from-scratch.png">
+                    <h1>/projects/web-app-from-scratch</h1>
+                </a>
+                <a class="boardom anim" href="/boardom">
+                    <img src="img/boardom-homepage.jpg">
+                    <h1>/projects/boardom</h1>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="/js/script.js"></script>
+    <script src="/js/prism.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

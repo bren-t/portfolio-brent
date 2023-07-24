@@ -1,0 +1,1076 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+
+    /* Colors */
+    --black: #131313;
+    --off-white: #EFEFEF;
+    --white: #FFFFFF;
+    --grey: #8b8b8b;
+    --light-grey: #D9D9D9;
+    
+    /* Fonts */
+    --bitter: 'Bitter', serif;
+    --roboto: 'Roboto', sans-serif;
+
+    /* Font Size */
+    --h1-size: 5.125em;
+    --h2-size: 3.25em;
+    --h3-size: 2.6em;
+    --p-size: 2.2em;
+    --nav-p-size: 1.275em;
+
+    /* Letter Spacing */
+    --h1-letterspacing: -1px;
+    --nav-p-letterspacing: -1px;
+    --p-letterspacing: -1.5px;
+}
+
+body {
+    background-color: var(--off-white);
+}
+
+
+
+
+
+.container {
+    width: 92vw;
+    margin: auto;
+}
+
+
+
+
+
+/* Homepage */
+
+#homepage nav {
+    z-index: 1;
+    position: fixed;
+    width: 92vw;
+    margin: auto;
+    inset: 0 0 auto;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    align-items: center;
+    height: 6em;
+}
+
+#homepage nav a {
+    text-decoration: none;
+}
+
+#homepage nav .nav-left p {
+    color: var(--black);
+    font-family: var(--roboto);
+    font-size: var(--nav-p-size);
+    letter-spacing: var(--nav-p-letterspacing);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#homepage nav .nav-left p:hover {
+    color: var(--black);
+    font-weight: 600;
+    font-family: var(--bitter);
+}
+
+#homepage nav .nav-right {
+    display: flex;
+    justify-content: space-between;
+}
+
+#homepage nav .nav-right a {
+    display: flex;
+    align-items: center;
+    padding-left: 1.2em;
+}
+
+#homepage nav .nav-right p {
+    color: var(--grey);
+    font-family: var(--roboto);
+    font-size: var(--nav-p-size);
+    letter-spacing: var(--nav-p-letterspacing);
+    cursor: pointer;
+    transition: 0.2s;
+    width: fit-content;
+}
+
+#homepage nav .nav-right a:hover p {
+    color: var(--black);
+    font-weight: 500;
+    font-family: var(--bitter);
+}
+
+#homepage nav .nav-right a ion-icon {
+    font-size: var(--nav-p-size);
+    color: var(--grey);
+    padding-left: 0.4em;
+    opacity: 0;
+    transition: 0.2s;
+}
+
+#homepage nav .nav-right a:hover ion-icon {
+    color: var(--black);
+    opacity: 1;
+}
+
+/* Curriculum Vitae 
+
+#homepage nav .nav-right {
+    display: flex;
+}
+
+#homepage nav .nav-right a {
+    display: flex;
+    background-color: var(--black);
+    border-radius: 100em;
+    padding: 0.8em 1.2em;
+    margin: 0 1.2em;
+    transition: 0.2s;
+}
+
+#homepage nav .nav-right a p {
+    color: var(--white);
+    font-family: var(--roboto);
+    font-size: var(--nav-p-size);
+    letter-spacing: var(--nav-p-letterspacing);
+    cursor: pointer;
+    transition: 0.2s;
+    width: fit-content;
+}
+
+#homepage nav .nav-right a:hover {
+    background-color: #3e3e3e;
+}
+
+#homepage nav .nav-right a:hover p {
+    color: var(--off-white);
+    font-weight: 400;
+    font-family: var(--roboto);
+}
+
+#homepage nav .nav-right a ion-icon {
+    font-size: 1.6em;
+    color: var(--white);
+    opacity: 1;
+    padding-left: 0.4em;
+}
+
+#homepage nav .nav-right a:hover ion-icon {
+    color: var(--white);
+    opacity: 1;
+}
+
+*/
+
+#homepage header {
+    height: 50em;
+    display: flex;
+    align-items: center;
+}
+
+#homepage header h1 {
+    color: var(--black);
+    font-family: var(--bitter);
+    font-size: var(--h1-size);
+    font-weight: 400;
+    letter-spacing: var(--h1-letterspacing);
+    line-height: 1.125em;
+}
+
+#homepage header .italic {
+    font-style: italic;
+    font-weight: 600;
+}
+
+
+
+
+
+#homepage main {
+    height: 80vh;
+    display: grid;
+    align-content: center;
+}
+
+#homepage main .projects {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 2em;
+}
+
+#homepage main .text h1 {
+    color: var(--light-grey);
+    font-family: var(--bitter);
+    font-size: var(--h1-size);
+    font-weight: 300;
+    letter-spacing: var(--h1-letterspacing);
+    line-height: 1.125em;
+    padding-bottom: 0.8em;
+}
+
+#homepage main .projects .user-centered-design,
+#homepage main .projects .geo-ranking,
+#homepage main .projects .burger-website,
+#homepage main .projects .web-app-from-scratch,
+#homepage main .projects .boardom {
+    display: grid;
+    place-items: center;
+    border-radius: 5px; 
+    padding: 2em;
+    transition: 0.3s;
+    outline: 2px solid var(--light-grey);
+    outline-offset: 0px;
+}
+
+#homepage main .projects .user-centered-design:hover,
+#homepage main .projects .geo-ranking:hover,
+#homepage main .projects .burger-website:hover,
+#homepage main .projects .web-app-from-scratch:hover,
+#homepage main .projects .boardom:hover {
+    background-color: var(--light-grey);
+    outline: 2px solid var(--grey);
+    outline-offset: 2px;
+}
+
+#homepage main .projects h1 {
+    color: var(--grey);
+    font-family: var(--roboto);
+    font-size: 1.2em;
+    font-weight: 400;
+    letter-spacing: -1px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+#homepage main .projects .user-centered-design:hover h1,
+#homepage main .projects .geo-ranking:hover h1,
+#homepage main .projects .burger-website:hover h1,
+#homepage main .projects .web-app-from-scratch:hover h1,
+#homepage main .projects .boardom:hover h1 {
+    color: var(--black);
+    font-family: var(--bitter);
+    font-size: 1.2em;
+    font-weight: 500;
+    letter-spacing: -1px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+#homepage main .projects .user-centered-design:active,
+#homepage main .projects .geo-ranking:active,
+#homepage main .projects .burger-website:active,
+#homepage main .projects .web-app-from-scratch:active,
+#homepage main .projects .boardom:active {
+    background-color: var(--light-grey);
+    outline-offset: 0px;
+}
+
+#homepage main .projects img {
+    width: 80%;
+    height: 200px;
+    object-fit: contain;
+    padding-bottom: 1em;
+    border-radius: 5px;
+}
+
+#homepage main .projects a {
+    text-decoration: none;
+}
+
+
+
+
+
+
+#homepage section:nth-of-type(1) {
+    display: grid;
+    align-items: center;
+    height: 100vh;
+}
+
+#homepage section:nth-of-type(1) .text {
+    display: grid;
+    grid-gap: 2em;
+}
+
+#homepage section:nth-of-type(1) .text h1 {
+    color: var(--black);
+    font-family: var(--bitter);
+    font-size: var(--h1-size);
+    font-weight: 400;
+    letter-spacing: var(--h1-letterspacing);
+    line-height: 1.125em;
+}
+
+#homepage section:nth-of-type(1) .text p {
+    color: var(--grey);
+    font-family: var(--roboto);
+    font-size: var(--p-size);
+    font-weight: 400;
+    letter-spacing: var(--p-letterspacing);
+    line-height: 1.6;
+}
+
+#homepage section:nth-of-type(1) .text .brentduineveld2 {
+    color: var(--black);
+    font-family: var(--bitter);
+    font-weight: 500;
+    letter-spacing: var(--p-letterspacing);
+}
+
+
+
+    
+
+#homepage section:nth-of-type(2) {
+    display: grid;
+    align-items: center;
+    height: 100vh;
+    padding: 8em 0;
+}
+
+#homepage section:nth-of-type(2) article {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+}
+
+#homepage section:nth-of-type(2) article .html-css-javascript {
+    display: grid;
+    grid-gap: 1em;
+    cursor: default;
+}
+
+#homepage section:nth-of-type(2) article .adobe-xd {
+    display: grid;
+    grid-gap: 1em;
+    cursor: default;
+}
+
+#homepage section:nth-of-type(2) article .figma {
+    display: grid;
+    grid-gap: 1em;
+    cursor: default;
+}
+
+#homepage section:nth-of-type(2) article .html-css-javascript-iconen {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1em;
+    padding-left: 2em;
+}
+
+#homepage section:nth-of-type(2) article .html-css-javascript-iconen ion-icon {
+    width: 2em;
+    height: 2em;
+}
+
+#homepage section:nth-of-type(2) article .line {
+    background-color: var(--light-grey);
+    height: 2px;
+    width: 100%;
+    transition: 0.2s;
+}
+
+#homepage section:nth-of-type(2) article div:hover .line {
+    background-color: var(--black);
+    height: 3px;
+    width: 100%;
+}
+
+#homepage section:nth-of-type(2) h1 {
+    color: var(--black);
+    font-family: var(--bitter);
+    font-size: var(--h1-size);
+    font-weight: 400;
+    letter-spacing: var(--h1-letterspacing);
+    line-height: 1.125em;
+}
+
+#homepage section:nth-of-type(2) p {
+    color: var(--grey);
+    font-family: var(--roboto);
+    font-size: var(--p-size);
+    font-weight: 400;
+    letter-spacing: var(--p-letterspacing);
+    line-height: 1.5;
+}
+
+
+
+
+
+#homepage footer {
+    display: grid;
+    align-items: center;
+    height: 100vh;
+}
+
+#homepage footer .footer-container {
+    width: 92vw;
+    margin: auto;
+}
+
+#homepage footer div:nth-of-type(1) p {
+    color: var(--grey);
+    font-family: var(--roboto);
+    font-size: var(--p-size);
+    font-weight: 400;
+    letter-spacing: var(--p-letterspacing);
+    line-height: 1.5;
+}
+
+#homepage footer div:nth-of-type(1) .e-mail a {
+    color: var(--black);
+    font-family: var(--roboto);
+    font-size: var(--p-size);
+    font-weight: 400;
+    letter-spacing: var(--p-letterspacing);
+    line-height: 1.5;
+    padding-left: 0.2em;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+#homepage footer div:nth-of-type(1) .e-mail a:hover {
+    font-family: var(--bitter);
+    font-weight: 500;
+}
+
+#homepage footer div:nth-of-type(1) .e-mail a:active {
+    color: var(--grey);
+}
+
+#homepage footer .e-mail-icon {
+    cursor: pointer;
+    width: fit-content;
+}
+
+#homepage footer .e-mail {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
+
+#homepage footer .line {
+    height: 0px;
+    width: fit-content;
+    transition: 0.2s;
+}
+
+#homepage footer .e-mail-icon:hover .line {
+    background-color: var(--black);
+    height: 3px;
+    width: 100%;
+}
+
+#homepage ion-icon {
+    font-size: 2.2em;
+    color: var(--black);
+}
+
+
+
+
+
+#homepage #resume {
+    padding: 4em 0;
+    display: grid;
+    grid-template-columns: 60% auto;
+    grid-gap: 4em;
+    align-items: start;
+    height: auto;
+}
+
+#homepage #resume aside {
+    position: sticky;
+    top: 10em;
+}
+
+#homepage #resume aside h1 {
+    color: var(--black);
+    font-family: var(--bitter);
+    font-size: var(--h2-size);
+    font-weight: 400;
+    letter-spacing: var(--h1-letterspacing);
+    line-height: 1.125em;
+    padding-bottom: 0.1em;
+    width: 100%;
+}
+
+#homepage #resume aside a {
+    display: grid;
+    text-decoration: none;
+    width: fit-content;
+}
+
+#homepage #resume aside p {
+    color: var(--grey);
+    font-family: var(--roboto);
+    font-size: 1.7em;
+    font-weight: 400;
+    letter-spacing: var(--p-letterspacing);
+    line-height: 1.6;
+    padding-top: 0.4em;
+    transition: 0.2s;
+}
+
+#homepage #resume aside a p {
+    color: var(--black);
+}
+
+#homepage #resume aside a:hover p {
+    color: var(--black);
+    font-family: var(--bitter);
+    font-weight: 500;
+}
+
+#homepage #resume article img {
+    width: 100%;
+    border-radius: 2em;
+}
+
+#homepage #resume aside .line {
+    background-color: var(--light-grey);
+    height: 2px;
+    width: 100%;
+    transition: 0.2s;
+}
+
+#homepage #resume aside a:hover .line {
+    background-color: var(--black);
+    height: 3px;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* User Centered Design, geo.ranking, Burger Website, Web App From Scratch detail */
+
+.project nav {
+    z-index: 1;
+    position: fixed;
+    width: 92vw;
+    margin: auto;
+    inset: 0 0 auto;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    align-items: center;
+    height: 6em;
+}
+
+.project nav a {
+    text-decoration: none;
+}
+
+.project nav .nav-left button {
+    background-color: var(--white);
+    border-radius: 100em;
+    border: 0px;
+    height: 4em;
+    width: 4em;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project nav .nav-left button:hover {
+    background-color: var(--black);
+}
+
+.project nav .nav-left ion-icon {
+    color: var(--black);
+    padding: 0.25em;
+    border-radius: 100em;
+    transition: 0.2s;
+    font-size: 2.4em;
+}
+
+.project nav .nav-left ion-icon:hover {
+    color: var(--white);
+}
+
+.project nav .nav-middle p {
+    align-items: center;
+    color: var(--black);
+    font-family: var(--roboto);
+    font-size: var(--nav-p-size);
+    letter-spacing: var(--nav-p-letterspacing);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.project nav .nav-middle p:hover {
+    color: var(--black);
+    font-weight: 600;
+    font-family: var(--bitter);
+}
+
+.project nav .nav-right a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding-left: 1.2em;
+}
+
+.project nav .nav-right p {
+    color: var(--grey);
+    font-family: var(--roboto);
+    font-size: var(--nav-p-size);
+    letter-spacing: var(--nav-p-letterspacing);
+    cursor: pointer;
+    transition: 0.2s;
+    width: fit-content;
+}
+
+.project nav .nav-right a:hover p {
+    color: var(--black);
+    font-weight: 500;
+    font-family: var(--bitter);
+}
+
+.project nav .nav-right a ion-icon {
+    font-size: var(--nav-p-size);
+    color: var(--grey);
+    padding-left: 0.4em;
+    opacity: 0;
+}
+
+.project nav .nav-right a:hover ion-icon {
+    color: var(--black);
+    opacity: 1;
+}
+
+
+
+
+
+.project header {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.project header h1 {
+    color: var(--black);
+    font-family: var(--bitter);
+    font-size: var(--h1-size);
+    font-weight: 400;
+    letter-spacing: var(--h1-letterspacing);
+    line-height: 1.125em;
+}
+
+.project header h1 .italic {
+    font-style: italic;
+    font-weight: 600;
+}
+
+
+
+
+
+.project main {
+    height: 100vh;
+    width: 50vw;
+    margin: auto;
+    display: grid;
+    grid-gap: 4em;
+    align-content: center;
+}
+
+.project main div {
+    height: 100%;
+    align-content: center;
+}
+
+.project main div h1 {
+    color: var(--black);
+    font-family: var(--bitter);
+    font-size: var(--h2-size);
+    font-weight: 400;
+    letter-spacing: var(--h1-letterspacing);
+    line-height: 1.125em;
+    padding-bottom: 0.4em;
+} 
+
+.project main div p {
+    color: var(--grey);
+    font-family: var(--roboto);
+    font-size: 1.7em;
+    font-weight: 400;
+    letter-spacing: var(--p-letterspacing);
+    line-height: 1.6;
+}
+
+.project main div li {
+    color: var(--grey);
+    font-family: var(--roboto);
+    font-size: 1.7em;
+    font-weight: 400;
+    letter-spacing: var(--p-letterspacing);
+    line-height: 1.6;
+    list-style-type: none;
+}
+
+
+
+
+#georanking section:nth-of-type(1),
+#burger section:nth-of-type(1),
+#ucd section:nth-of-type(1) {
+    padding: 4em 0;
+    display: grid;
+    grid-template-columns: 30% auto;
+    grid-gap: 4em;
+    align-items: start;
+}
+
+.project section:nth-of-type(1) aside {
+    position: sticky;
+    top: 8em;
+}
+
+.project section:nth-of-type(1) aside h1 {
+    color: var(--black);
+    font-family: var(--bitter);
+    font-size: var(--h2-size);
+    font-weight: 400;
+    letter-spacing: var(--h1-letterspacing);
+    line-height: 1.125em;
+    width: 100%;
+}
+
+.project section:nth-of-type(1) aside a {
+    display: grid;
+    text-decoration: none;
+    width: fit-content;
+}
+
+.project section:nth-of-type(1) aside p {
+    color: var(--grey);
+    font-family: var(--roboto);
+    font-size: 1.7em;
+    font-weight: 400;
+    letter-spacing: var(--p-letterspacing);
+    line-height: 1.6;
+    padding-top: 0.4em;
+    transition: 0.2s;
+}
+
+.project section:nth-of-type(1) aside a p {
+    color: var(--black);
+}
+
+.project section:nth-of-type(1) aside a:hover p {
+    color: var(--black);
+    font-family: var(--bitter);
+    font-weight: 500;
+}
+
+.project section:nth-of-type(1) article img {
+    width: 100%;
+    border-radius: 2em;
+}
+
+.project section:nth-of-type(1) aside .line {
+    background-color: var(--light-grey);
+    height: 2px;
+    width: 100%;
+    transition: 0.2s;
+}
+
+.project section:nth-of-type(1) aside a:hover .line {
+    background-color: var(--black);
+    height: 3px;
+    width: 100%;
+}
+
+
+
+
+
+.project section:nth-of-type(2) {
+    padding: 4em 0;
+    display: grid;
+    grid-template-columns: auto 50%;
+    grid-gap: 4em;
+    align-items: start;
+}
+
+.project section:nth-of-type(2) aside {
+    position: sticky;
+    top: 8em;
+}
+
+.project section:nth-of-type(2) aside h1 {
+    color: var(--black);
+    font-family: var(--bitter);
+    font-size: var(--h2-size);
+    font-weight: 400;
+    letter-spacing: var(--h1-letterspacing);
+    line-height: 1.125em;
+}
+
+.project section:nth-of-type(2) aside a {
+    display: grid;
+    text-decoration: none;
+    width: fit-content;
+}
+
+.project section:nth-of-type(2) aside p {
+    color: var(--grey);
+    font-family: var(--roboto);
+    font-size: 1.7em;
+    font-weight: 400;
+    letter-spacing: var(--p-letterspacing);
+    line-height: 1.6;
+    padding-top: 0.4em;
+    transition: 0.2s;
+}
+
+.project section:nth-of-type(2) aside a p {
+    color: var(--black);
+}
+
+.project section:nth-of-type(2) aside a:hover p {
+    color: var(--black);
+    font-family: var(--bitter);
+    font-weight: 500;
+}
+
+.project section:nth-of-type(2) article img {
+    width: 100%;
+    border-radius: 2em;
+}
+
+.project section:nth-of-type(2) aside .line {
+    background-color: var(--light-grey);
+    height: 2px;
+    width: 100%;
+    transition: 0.2s;
+}
+
+.project section:nth-of-type(2) aside a:hover .line {
+    background-color: var(--black);
+    height: 3px;
+    width: 100%;
+}
+
+
+
+
+
+.project footer {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-content: center;
+}
+
+.project footer .projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2em;
+}
+
+.project footer .text {
+    display: grid;
+    align-items: center;
+}
+
+.project footer .text h1 {
+    color: var(--black);
+    font-family: var(--bitter);
+    font-size: var(--h1-size);
+    font-weight: 400;
+    letter-spacing: var(--h1-letterspacing);
+    line-height: 1.125em;
+}
+
+.project footer .projects .user-centered-design,
+.project footer .projects .geo-ranking,
+.project footer .projects .burger-website,
+.project footer .projects .web-app-from-scratch,
+.project footer .projects .boardom {
+    display: grid;
+    place-items: center;
+    border-radius: 5px; 
+    padding: 2em;
+    transition: 0.3s;
+    outline: 2px solid var(--light-grey);
+    outline-offset: 0px;
+}
+
+.project footer .projects .user-centered-design:hover,
+.project footer .projects .geo-ranking:hover,
+.project footer .projects .burger-website:hover,
+.project footer .projects .web-app-from-scratch:hover,
+.project footer .projects .boardom:hover {
+    background-color: var(--light-grey);
+    outline: 2px solid var(--grey);
+    outline-offset: 2px;
+}
+
+.project footer .projects h1 {
+    color: var(--grey);
+    font-family: var(--roboto);
+    font-size: 1.2em;
+    font-weight: 400;
+    letter-spacing: -1px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.project footer .projects .user-centered-design h1,
+.project footer .projects .geo-ranking:hover h1,
+.project footer .projects .burger-website:hover h1,
+.project footer .projects .web-app-from-scratch:hover h1,
+.project footer .projects .boardom:hover h1 {
+    color: var(--black);
+    font-family: var(--bitter);
+    font-size: 1.2em;
+    font-weight: 500;
+    letter-spacing: -1px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.project footer .projects .user-centered-design:active,
+.project footer .projects .geo-ranking:active,
+.project footer .projects .burger-website:active,
+.project footer .projects .web-app-from-scratch:active,
+.project footer .projects .boardom:active {
+    background-color: var(--light-grey);
+    outline-offset: 0px;
+}
+
+.project footer .projects img {
+    width: 80%;
+    height: 200px;
+    object-fit: contain;
+    padding-bottom: 1em;
+    border-radius: 5px;
+}
+
+.project footer .projects a {
+    text-decoration: none;
+}
+
+
+
+
+
+#webappfromscratch section:nth-of-type(1) {
+    padding: 4em 0;
+    display: grid;
+    grid-template-columns: auto 30%;
+    grid-gap: 4em;
+    align-items: start;
+}
+
+#webappfromscratch section:nth-of-type(2) {
+    display: block;
+    padding: 6em 0;
+    width: 50vw;
+    margin: auto;
+    align-items: start;
+}
+
+
+
+
+
+#burger section:nth-of-type(1) {
+    padding: 4em 0;
+    display: grid;
+    grid-template-columns: auto 40%;
+    grid-gap: 4em;
+    align-items: start;
+}
+
+
+
+
+
+#boardom section:nth-of-type(1) {
+    padding: 4em 0;
+    display: grid;
+    grid-template-columns: auto 40%;
+    grid-gap: 4em;
+    align-items: start;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.anim {
+    opacity: 0;
+    transform: translateY(-0.2em);
+    transition: all 0.5s ease-in-out;
+}
+
+.anim.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
